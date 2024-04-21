@@ -1,6 +1,8 @@
 package study.memo;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import org.assertj.core.api.Assertions;
+import org.hibernate.sql.Update;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -10,9 +12,10 @@ import study.memo.domain.Memo;
 import study.memo.domain.MemoBuilder;
 import study.memo.domain.MemoRepository;
 
-@Commit
+import static org.assertj.core.api.Assertions.*;
+
 @SpringBootTest
-@Transactional()
+@Transactional
 class MemoApplicationTests {
 
     @Autowired
@@ -25,6 +28,7 @@ class MemoApplicationTests {
 				.content("내용")
 				.build();
 		memoRepository.save(memo);
+		Memo findMemo = memoRepository.findById(1L).get();
+		assertThat(memo).isEqualTo(findMemo);
 	}
-
 }
