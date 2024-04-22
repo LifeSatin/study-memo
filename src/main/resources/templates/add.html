@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
 <a href="/">취소</a>
-<form action="memo.html" th:action th:object="${form}" method="post">
+<form action="memo.html" th:action th:object="${memoDto}" method="post">
     <div>
         <label for="title">제목</label>
         <input type="text" id="title" th:field="*{title}" class="form-control" placeholder="제목">

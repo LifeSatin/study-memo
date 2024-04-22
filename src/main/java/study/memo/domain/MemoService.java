@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -27,5 +28,13 @@ public class MemoService {
     @Transactional
     public void deleteMemo(Long id) {
         memoRepository.deleteById(id);
+    }
+
+    public Memo findMemo(Long id) {
+        return memoRepository.findById(id).get();
+    }
+
+    public List<Memo> findAll() {
+        return memoRepository.findAll();
     }
 }

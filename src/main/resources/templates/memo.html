@@ -1,10 +1,20 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-<a href="/">돌아가기</a>
+<a href="/" th:href="@{/}">돌아가기</a>
+
+<div>
+    <span th:text="${memo.title}">제목</span>
+</div>
+
+<div>
+    <span th:text="${memo.content}">내용</span>
+</div>
+
+<a href="/">수정</a>
 </body>
 </html>
