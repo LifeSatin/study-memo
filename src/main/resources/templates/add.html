@@ -6,5 +6,16 @@
 </head>
 <body>
 <a href="/">취소</a>
+<form action="memo.html" th:action th:object="${form}" method="post">
+    <div>
+        <label for="title">제목</label>
+        <input type="text" id="title" th:field="*{title}" class="form-control" placeholder="제목">
+    </div>
+    <div>
+        <label for="content">내용</label>
+        <input type="text" id="content" th:field="*{content}" class="form-control" placeholder="내용">
+    </div>
+    <button type="submit">등록</button>
+</form>
 </body>
 </html>

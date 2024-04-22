@@ -1,10 +1,8 @@
 package study.memo.domain;
 
 import jakarta.persistence.EntityManager;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
-import javax.swing.text.html.Option;
 import java.util.Optional;
 
 @Repository
@@ -21,13 +19,9 @@ public class MemoRepository {
         return memo;
     }
 
-    public Optional<Memo> findById(Long id) {
-        return Optional.ofNullable(em.find(Memo.class, id));
-    }
-
-    public void update(Long id, MemoBuilder mb) {
+    public void update(Long id, MemoDto dto) {
         Memo findMemo = em.find(Memo.class, id);
-        findMemo = mb.build();
+        findMemo.update(dto.getTitle(), dto.getContent());
     }
 
     public void deleteById(Long id) {
@@ -35,5 +29,10 @@ public class MemoRepository {
         if (findMemo != null) {
             em.remove(findMemo);
         }
+    }
+
+    //테스트용
+    public Optional<Memo> findById(Long id) {
+        return Optional.ofNullable(em.find(Memo.class, id));
     }
 }
