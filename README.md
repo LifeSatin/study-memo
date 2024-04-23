@@ -1,5 +1,4 @@
-정말 최소한의 CRUD 기능만 가진 메모 게시판
-+ Git, Github 사용해보기 느낌
+정말 최소한의 CRUD 기능만 가진 메모 게시판 + Git, Github 사용해보기 느낌
 
 스프링 부트 + JPA + MySQL + Git
 
