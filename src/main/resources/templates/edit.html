@@ -1,10 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-
+<a href='home.html' th:href="@{/}">취소</a>
+<form action="memo.html" th:action th:object="${memoDto}" method="post">
+    <div>
+        <label for="title">제목</label>
+        <input type="text" id="title" th:field="*{title}" class="form-control">
+    </div>
+    <div>
+        <label for="content">내용</label>
+        <input type="text" id="content" th:field="*{content}" class="form-control">
+    </div>
+    <button type="submit">수정</button>
+</form>
 </body>
 </html>

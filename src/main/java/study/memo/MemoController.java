@@ -46,4 +46,23 @@ public class MemoController {
         model.addAttribute(memo);
         return "memo";
     }
+
+    @GetMapping("/{memoId}/edit")
+    public String editForm(@PathVariable Long memoId, Model model) {
+        Memo memo = memoService.findMemo(memoId);
+        model.addAttribute(new MemoDto(memo.getTitle(), memo.getContent()));
+        return "edit";
+    }
+
+    @PostMapping("/{memoId}/edit")
+    public String editMemo(@PathVariable Long memoId, MemoDto dto) {
+        memoService.updateMemo(memoId, dto);
+        return "redirect:/{memoId}";
+    }
+
+    @GetMapping("/{memoId}/delete")
+    public String deleteMemo(@PathVariable Long memoId) {
+        memoService.deleteMemo(memoId);
+        return "redirect:/";
+    }
 }

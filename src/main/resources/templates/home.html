@@ -5,14 +5,14 @@
     <title>Title</title>
 </head>
 <body>
-<a href="/add" th:href="@{/add}">메모 작성</a>
+<a href='add.html' th:href="@{/add}">메모 작성</a>
 <div>
     <table class="table">
         <thead>목록</thead>
         <tbody>
             <tr th:each="memo : ${memos}">
                 <td>
-                    <a href="item.html" th:href="@{/{memoId}(memoId=${memo.id})}" th:text="${memo.title}">제목</a>
+                    <a href='item.html' th:href="@{/{memoId}(memoId=${memo.id})}" th:text="${memo.title}">제목</a>
                 </td>
             </tr>
         </tbody>
